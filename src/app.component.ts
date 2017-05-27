@@ -8,7 +8,8 @@ import { Bus } from './services/bus.service';
 import {
   HeaderComponent,
   HomeComponent,
-  LoginComponent
+  LoginComponent,
+  WaitingComponent
 } from './components';
 
 
@@ -20,7 +21,8 @@ import {
     {
       adheader: HeaderComponent,
       home: HomeComponent,
-      login: LoginComponent
+      login: LoginComponent,
+      waiting: WaitingComponent
     }
   }
 )
@@ -28,6 +30,8 @@ export default class AppComponent extends Vue {
   private hello: string = 'Hello from Vue!';
   private socket: Socket;
   private state: any = {};
+  private trueVariable: boolean = true; // TODO: remove, left for test
+  private falseVariable: boolean = false; // TODO: remove, left for test
 
   constructor() {
     super();

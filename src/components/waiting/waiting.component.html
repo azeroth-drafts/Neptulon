@@ -1,0 +1,10 @@
+<div>
+    <div v-if="isJoined" class="waiting-center">
+        <h3>Game found!</h3>
+        <button @click="acceptGame" class="btn btn-success" type="button">Accept game</button>
+        <button @click="rejectGame" class="btn btn-danger" type="button">Cancel game</button>
+    </div>
+    <div v-if="!isJoined" class="waiting-center">
+        <h3>Waiting for other players...</h3>
+    </div>
+</div>
