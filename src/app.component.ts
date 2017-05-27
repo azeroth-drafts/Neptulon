@@ -65,6 +65,13 @@ export default class AppComponent extends Vue {
     { playerClass: 'Rogue', name: 'Krokozoid', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 431, cost: 1 },
     { playerClass: 'Neutral', name: 'Zmei Gorianin', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 731, cost: 4 }
   ]
+  
+   private selectedCards: Array<any> = [
+    { playerClass: 'Hunter', name: 'Django Bango', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 16, cost: 5 },
+    { playerClass: 'Mage', name: 'Babaliuga' ,img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 123, cost: 8 },
+    { playerClass: 'Rogue', name: 'Krokozoid', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 431, cost: 1 },
+    { playerClass: 'Neutral', name: 'Zmei Gorianin', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 731, cost: 4 }
+  ]
 
   private currentState: string = 'drawing';
 

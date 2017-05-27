@@ -7,13 +7,13 @@ import { PLAYER_CLASSES, STATES } from "../../constants";
     name: 'selected-board',
     template: require( './selected-board.component.html' ),
     props: [
-        'cards',
+        'selectedCards',
         'currentState',
         'playerClass'
     ]
 } )
 export class SelectedBoardComponent extends Vue {
-    private cards: Array<any>;
+    private selectedCards: Array<any>;
 
     private currentState: string;
 

@@ -11,7 +11,7 @@
             <div>{{playerClass}}</div>
         </div>
         <div class="headline text-center">Your selected cards</div>
-        <div class="card" v-for="card in cards" @click="removeSelected(card.id)" v-bind:class="{'drawing-state': currentState === states.drawing}">
+        <div class="card" v-for="card in selectedCards" @click="removeSelected(card.id)" v-bind:class="{'drawing-state': currentState === states.drawing}">
             <span class="cost">{{card.cost}}</span>
             <span class="name">{{card.name}}</span>
             <span class="player-class">{{card.playerClass}}</span>
