@@ -4,10 +4,13 @@ import { Socket } from 'phoenix-socket';
 
 import { SocketManager } from './services/socket.service';
 import { Bus } from './services/bus.service';
+
 import {
   HeaderComponent,
+  HomeComponent,
   LoginComponent
 } from './components';
+
 
 @Component(
   {
@@ -16,6 +19,7 @@ import {
     components:
     {
       adheader: HeaderComponent,
+      home: HomeComponent,
       login: LoginComponent
     }
   }
