@@ -12,7 +12,7 @@
                     <input class="form-control" type="password" v-model="user.password" placeholder="Enter password">
                 </div>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="text-center">
                 <button class="btn" type="button" @click="login" v-bind:disabled="!formValid">Login</button>
             </div>
             <div v-if="messageFromParent" class="alert alert-danger marg-top text-center">{{messageFromParent}}</div>

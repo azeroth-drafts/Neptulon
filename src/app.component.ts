@@ -4,7 +4,10 @@ import { Socket } from 'phoenix-socket';
 
 import { SocketManager } from './services/socket.service';
 import { Bus } from './services/bus.service';
-import { LoginComponent } from './components';
+import {
+  HeaderComponent,
+  LoginComponent
+} from './components';
 
 @Component(
   {
@@ -12,6 +15,7 @@ import { LoginComponent } from './components';
     template: require( './app.component.html' ),
     components:
     {
+      adheader: HeaderComponent,
       login: LoginComponent
     }
   }
