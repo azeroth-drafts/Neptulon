@@ -17,8 +17,6 @@ export class SelectedBoardComponent extends Vue {
 
     private currentState: string;
 
-    private mainDrawMode: Object;
-
     private playerClasses: any = PLAYER_CLASSES;
 
     private states: any = STATES;

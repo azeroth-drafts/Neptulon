@@ -76,8 +76,13 @@ export default class AppComponent extends Vue {
   private currentState: string = 'drawing';
   private isCardSelected: boolean = false;
 
-  private selectCardHandler(cardId: number): void {
+  private selectCardHandler(card: any): void {
     // TODO: send to channel
     this.isCardSelected = true;
+  }
+
+  private buildCardHandler(card: any): void {
+    // TODO: send to channel
+    console.log('build id:' + card.id);
   }
 }

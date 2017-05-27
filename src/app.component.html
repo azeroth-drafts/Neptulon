@@ -5,6 +5,11 @@
     <login></login>
     <waiting v-bind:isJoined="trueVariable"></waiting>
     <waiting v-bind:isJoined="falseVariable"></waiting>
-    <drawing-board v-bind:currentState="currentState" v-bind:cards="cards" v-bind:isCardSelected="isCardSelected" @selectCard="selectCardHandler"></drawing-board>
+    <drawing-board 
+        v-bind:currentState="currentState" 
+        v-bind:cards="cards" 
+        v-bind:isCardSelected="isCardSelected"
+        @buildCard="buildCardHandler" 
+        @selectCard="selectCardHandler"></drawing-board>
     <selected-board v-bind:currentState="currentState" v-bind:selectedCards="selectedCards"></selected-board>
 </div>
