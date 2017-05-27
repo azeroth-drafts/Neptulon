@@ -1,0 +1,18 @@
+.card-layout {
+    display: inline-block;
+
+    &.notActive {
+        // pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+img {
+    width: 150px;
+
+    &:hover{
+        background-color: red;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+}

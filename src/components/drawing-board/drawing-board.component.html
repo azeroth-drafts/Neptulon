@@ -1,0 +1,9 @@
+<div class="clearfix">
+    <div class="row">
+        <div class="col-xs-8">
+            <div v-for="card in cards" @click="selectCard(card.id)" class="col-xs-2 card-layout">
+                <img v-bind:src="card.img" v-bind:class="{notActive: card.isSelected}" />
+            </div>  
+        </div>
+    </div>
+</div>

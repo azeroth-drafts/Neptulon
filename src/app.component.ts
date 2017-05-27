@@ -6,6 +6,7 @@ import { SocketManager } from './services/socket.service';
 import { Bus } from './services/bus.service';
 
 import {
+  DrawingBoardComponent,
   HeaderComponent,
   HomeComponent,
   LoginComponent,
@@ -21,6 +22,7 @@ import {
     components:
     {
       adHeader: HeaderComponent,
+      drawingBoard: DrawingBoardComponent,
       home: HomeComponent,
       login: LoginComponent,
       waiting: WaitingComponent,
