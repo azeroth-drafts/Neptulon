@@ -4,7 +4,7 @@ import { Socket } from 'phoenix-socket';
 
 import { SocketManager } from './services/socket.service';
 import { Bus } from './services/bus.service';
-import './components';
+import { LoginComponent } from './components';
 
 @Component(
   {
@@ -12,7 +12,7 @@ import './components';
     template: require( './app.component.html' ),
     components:
     {
-
+      login: LoginComponent
     }
   }
 )
