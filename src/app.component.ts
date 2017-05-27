@@ -9,7 +9,8 @@ import {
   HeaderComponent,
   HomeComponent,
   LoginComponent,
-  WaitingComponent
+  WaitingComponent,
+  OtherPlayersComponent,
 } from './components';
 
 
@@ -19,10 +20,11 @@ import {
     template: require( './app.component.html' ),
     components:
     {
-      adheader: HeaderComponent,
+      adHeader: HeaderComponent,
       home: HomeComponent,
       login: LoginComponent,
-      waiting: WaitingComponent
+      waiting: WaitingComponent,
+      otherPlayers: OtherPlayersComponent,
     }
   }
 )
@@ -38,4 +40,10 @@ export default class AppComponent extends Vue {
     this.socket = SocketManager.initSocket( '/ws2' );
     console.log( this.socket );
   }
+
+  private players: Array<any> = [
+    { userName: 'Pesho', finished: true, tick: 27 },
+    { userName: 'Maria', finished: false, tick: 27 },
+    { userName: 'Sonia', finished: false, tick: 27 }
+  ]
 }

@@ -1,0 +1,7 @@
+<div class="other-players-wrapper">
+    <div class="player col-xs-4 text-center" v-bind:class="{finished: player.finished }" v-for="player in players">
+        <h2>{{player.userName}}</h2>
+        <p v-if="!player.finished">Time remaining: {{player.tick}}</p>
+        <p v-else>Selected</p>
+    </div>
+</div>
