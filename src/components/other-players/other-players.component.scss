@@ -1,0 +1,9 @@
+.other-players-wrapper {
+    .player {
+        min-height: 100px;
+        background-color: orange;
+        &.finished {
+            background-color: green;
+        }
+    }
+}
