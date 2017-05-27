@@ -1,0 +1,21 @@
+<div class="clearfix">
+    <div class="selected-board-wrapper fright-all col-xs-4">
+        <div v-if="currentState === states.building && !playerClassSelected" class="select-class-container">
+            <div class="headline text-center">Select deck class</div>
+            <ul class="player-classes">
+                <li @click="selectPlayerClass(playerClass)" class="player-class text-center" v-for="playerClass in playerClasses">{{playerClass}}</li>
+            </ul>
+        </div>
+        <div v-if="currentState === states.building && playerClassSelected">
+            <div class="headline text-center">Deck class</div>
+            <div>{{playerClass}}</div>
+        </div>
+        <div class="headline text-center">Your selected cards</div>
+        <div class="card" v-for="card in cards" @click="removeSelected(card.id)" v-bind:class="{'drawing-state': currentState === states.drawing}">
+            <span class="cost">{{card.cost}}</span>
+            <span class="name">{{card.name}}</span>
+            <span class="player-class">{{card.playerClass}}</span>
+            <img class="card-image" v-bind:src="card.img">
+        </div>
+    </div>
+</div>
