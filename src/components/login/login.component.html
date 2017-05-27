@@ -1,0 +1,21 @@
+<div class="container login-wrapper">
+    <div class="form-container">
+        <h2 class="text-center">{{messageLogin}}</h2>
+        <form>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <input class="form-control" type="text" v-model="user.username" placeholder="Enter username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <input class="form-control" type="password" v-model="user.password" placeholder="Enter password">
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <button class="btn" type="button" @click="login" v-bind:disabled="!formValid">Login</button>
+            </div>
+            <div v-if="messageFromParent" class="alert alert-danger marg-top text-center">{{messageFromParent}}</div>
+        </form>
+    </div>
+</div>
