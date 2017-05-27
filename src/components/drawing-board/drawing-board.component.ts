@@ -8,22 +8,22 @@ import { STATES } from "../../constants";
     template: require( './drawing-board.component.html' ),
     props: [
         'cards',
-        'currentState'
+        'currentState',
+        'isCardSelected'
     ],
 } )
 
 export class DrawingBoardComponent extends Vue {
     private cards: Array<any>;
     private currentState: string;
-
-    private mainDrawMode: Object;
+    private isCardSelected: boolean;
 
     private selectCard(id: number):void {
-        if (this.currentState === STATES.drawing) {
+        if (this.currentState === STATES.drawing && !this.isCardSelected) {
 
             this.removeElementById(id);
 
-             this.$emit( 'selected',
+             this.$emit( 'selectCard',
                 {
                     id: id
                 }

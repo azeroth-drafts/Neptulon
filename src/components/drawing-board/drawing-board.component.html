@@ -1,8 +1,8 @@
-<div class="col-xs-8">
+<div class="col-xs-8 drawing-board-wrapper">
     <div>
         <div>
-            <div v-for="card in cards" @click="selectCard(card.id)" class="col-xs-6 col-sm-4 col-md-3 card-layout">
-                <img v-bind:src="card.img" v-bind:class="{notActive: card.isSelected}" />
+            <div v-for="card in cards" @click="selectCard(card.id)" v-bind:class="{notActive: isCardSelected}" class="col-xs-6 col-sm-4 col-md-3 card-layout">
+                <img v-bind:src="card.img"  />
             </div>
         </div>
     </div>
