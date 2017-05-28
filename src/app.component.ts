@@ -84,16 +84,6 @@ export default class AppComponent extends Vue {
       this.username = user.username;
       this.socketAddress = response.data.socket;
       this.token = response.data.token;
-
-      // this.socket = SocketManager.initSocket( response.data.socket, { params: { token: response.data.token } } );
-      // this.socket.connect();
-      // this.tavernChanel = this.socket.channel( 'tavern', { token: response.data.token } );
-      // this.tavernChanel.on( 'game_found', () => { } );
-      // this.tavernChanel.on( 'game_start', () => { } );
-      // this.tavernChanel.on( 'game_canceled', () => { } );
-      // //this.tavernChanel.push('accept');
-      // //this.tavernChanel.push('reject');
-      // this.tavernChanel.join();
     } ).catch(( err ) => {
       console.error( err );
       this.errorMessage = 'Could not login!'; // TODO: extract
@@ -131,6 +121,7 @@ export default class AppComponent extends Vue {
   }
 
   private gameStartCallback( response: any ): void {
+    console.dir( response );
     this.tavernChanel.leave();
     this.currentState = this.states.drawing;
 
@@ -158,9 +149,9 @@ export default class AppComponent extends Vue {
     this.isCardSelected = false;
   }
 
-  private selectCardHandler( card: any ): void {
-    this.gameChannel.push( 'selected', { cardId: card.id } );
-    this.selectedCards.push( card );
+  private selectCardHandler( event: any ): void {
+    this.gameChannel.push( 'selected', { cardId: event.card.id } );
+    this.selectedCards.push( event.card );
     this.isCardSelected = true;
   }
 
@@ -170,21 +161,21 @@ export default class AppComponent extends Vue {
     this.selectedCards = [];
   }
 
-  private buildCardHandler( card: any, index: number ): void {
-    this.selectedCards.push( card );
-    this.cards.splice( index, 1 );
+  private buildCardHandler( event: any ): void {
+    this.selectedCards.push( event.card );
+    this.cards.splice( event.index, 1 );
   }
 
-  private selectPlayerClassHandler( playerClass: string ): void {
-    this.playerClass = playerClass;
+  private selectPlayerClassHandler( event: any ): void {
+    this.playerClass = event.playerClass;
     this.cards = this.cards.filter(( card: any ) => {
-      return card.playerClass == playerClass || card.playerClass == this.playerClasses.Neutral
+      return card.playerClass == event.playerClass || card.playerClass == this.playerClasses.Neutral
     } );
   }
 
-  private removeSelectedHandler( card: any, index: number ): void {
-    this.cards.push( card );
-    this.selectedCards.splice( index, 1 );
+  private removeSelectedHandler( event: any ): void {
+    this.cards.push( event.card );
+    this.selectedCards.splice( event.index, 1 );
   }
 
   private sendSelectedDeckHandler(): void {

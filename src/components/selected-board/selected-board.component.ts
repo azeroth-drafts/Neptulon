@@ -29,7 +29,7 @@ export class SelectedBoardComponent extends Vue {
     private removeSelected( card: any, index: number ): void {
         if ( this.currentState === this.states.building ) {
             this.$emit( 'removeSelected', { card: card, index: index } );
-            console.log( 'Remove from selected card with id: ' + card.id );
+            console.log( 'Remove from selected card with id: ' + card.id, 'at indes: ' + index );
         }
     }
 
