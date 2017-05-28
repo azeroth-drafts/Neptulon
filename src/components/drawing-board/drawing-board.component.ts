@@ -22,9 +22,9 @@ export class DrawingBoardComponent extends Vue {
 
     private selectCard( card: any, index: number ): void {
         console.log( card );
-        if (this.currentState === this.states.drawing && !this.isCardSelected) {
+        if ( this.currentState === this.states.drawing && !this.isCardSelected ) {
 
-            this.removeElementById(card.id);
+            this.removeElementById( card.id );
 
             this.$emit( 'selectCard',
                 {
@@ -32,9 +32,7 @@ export class DrawingBoardComponent extends Vue {
                 }
             );
         }
-        else if (this.currentState === this.states.building) {
-            this.removeElementById(card.id);
-
+        else if ( this.currentState === this.states.building ) {
             this.$emit( 'buildCard',
                 {
                     card: card,
@@ -44,9 +42,9 @@ export class DrawingBoardComponent extends Vue {
         }
     }
 
-    private removeElementById(id: number): void {
-        let objectToRemove = this.cards.filter((el) => el.id == id)[0];
-        let index = this.cards.indexOf(objectToRemove);
-        this.cards.splice(index, 1);
+    private removeElementById( id: number ): void {
+        let objectToRemove = this.cards.filter(( el ) => el.id == id )[ 0 ];
+        let index = this.cards.indexOf( objectToRemove );
+        this.cards.splice( index, 1 );
     }
 }
