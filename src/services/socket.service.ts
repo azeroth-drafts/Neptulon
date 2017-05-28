@@ -1,4 +1,4 @@
-import * as PhoenixSocket from 'phoenix-socket';
+import * as PhoenixSocket from 'phoenix';
 
 export const SocketManager = {
     instance: null,

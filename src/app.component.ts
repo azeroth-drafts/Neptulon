@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
-import { Socket } from 'phoenix-socket';
+import { Socket } from 'phoenix';
 
 import { SocketManager } from './services/socket.service';
 import { Bus } from './services/bus.service';
@@ -41,18 +41,25 @@ export default class AppComponent extends Vue {
   private trueVariable: boolean = true; // TODO: remove, left for test
   private falseVariable: boolean = false; // TODO: remove, left for test
   private states: any = STATES;
+  private tavernChanel: any = null;
 
   constructor() {
     super();
 
-    /*  HttpService.post( 'http://localhost:4000/auth', {
-         user: 'Bahur'
-       } ).then(( response: any ) => {
-       
-        this.socket = SocketManager.initSocket( response.data.socket, { params: {token: response.data.token}} );
-        this.socket.connect();
-       console.log( this.socket );
-       } )*/
+    HttpService.post( 'http://localhost:4000/auth', {
+      user: 'Bahur'
+    } ).then(( response: any ) => {
+
+      this.socket = SocketManager.initSocket( response.data.socket, { params: { token: response.data.token } } );
+      this.socket.connect();
+      this.tavernChanel = this.socket.channel( 'tavern', { token: response.data.token } );
+      this.tavernChanel.on( 'game_found', () => { } );
+      this.tavernChanel.on( 'game_start', () => { } );
+      this.tavernChanel.on( 'game_canceled', () => { } );
+      //this.tavernChanel.push('accept');
+      //this.tavernChanel.push('reject');
+      this.tavernChanel.join();
+    } )
   }
 
   private players: Array<any> = [

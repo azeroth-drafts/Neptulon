@@ -2,6 +2,7 @@
     margin-top: 30vh;
     margin-bottom: 100px;
     .headline {
+        margin-bottom: 30px;
         color: white;
     }
     .form-container {
@@ -9,6 +10,13 @@
         margin: 0 auto;
     }
     .marg-top {
+        margin-top: 20px;
+    }
+    .login-form {
+        padding: 0 50px;
+    }
+    .login-button {
+        width: 160px;
         margin-top: 20px;
     }
 }

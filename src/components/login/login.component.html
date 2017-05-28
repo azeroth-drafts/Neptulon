@@ -1,7 +1,7 @@
 <div class="container login-wrapper">
     <div class="form-container">
         <h2 class="text-center headline">{{messageLogin}}</h2>
-        <form>
+        <form class="login-form">
             <div class="row">
                 <div class="form-group col-xs-12">
                     <input class="form-control" type="text" v-model="user.username" placeholder="Enter username">
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button class="btn" type="button" @click="login" v-bind:disabled="!formValid">Login</button>
+                <button class="login-button btn" type="button" @click="login" v-bind:disabled="!formValid">Login</button>
             </div>
             <div v-if="messageFromParent" class="alert alert-danger marg-top text-center">{{messageFromParent}}</div>
         </form>

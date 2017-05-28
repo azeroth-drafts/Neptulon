@@ -14,7 +14,7 @@ export class HeaderComponent extends Vue {
 
     private username: string;
 
-    private messageWelcome: string = 'Welcome ';
+    private messageWelcome: string = 'Welcome to the inn, ';
 
 
     set welcome( newValue: string ) {

@@ -17,7 +17,7 @@ export class LoginComponent extends Vue {
 
     private messageFromParent: string;
 
-    private messageLogin: string = 'Enter credentials:';
+    private messageLogin: string = 'Pull up a chair by the hearth, friend!';
 
     private user: LoginData = {
         username: '',

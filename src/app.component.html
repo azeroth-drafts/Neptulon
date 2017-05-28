@@ -1,7 +1,7 @@
 <div>
     <other-players v-if="currentState === states.drawing" v-bind:players="players"></other-players>
-    <ad-header v-if="currentState === states.waiting"></ad-header>
-    <home v-if="currentState === states.waiting"></home>
+    <ad-header v-if="currentState === states.waiting || currentState === states.joining"></ad-header>
+    <home v-if="currentState === states.joining"></home>
     <login v-if="currentState === states.logging"></login>
     <waiting v-if="currentState === states.waiting" v-bind:isJoined="trueVariable"></waiting>
     
@@ -21,8 +21,9 @@
 
 
 
-    <div>
+    <div class="state-buttons">
         <button @click="changeState('logging')">logging State</button>
+         <button @click="changeState('joining')">joining State</button>
         <button @click="changeState('waiting')">waiting State</button>
         <button @click="changeState('drawing')">drawing State</button>
         <button @click="changeState('building')">building State</button>
