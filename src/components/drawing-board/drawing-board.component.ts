@@ -33,7 +33,7 @@ export class DrawingBoardComponent extends Vue {
             );
         }
         else if (this.currentState === this.states.building) {
-            //this.removeElementById(card.id);
+            this.removeElementById(card.id);
 
             this.$emit( 'buildCard',
                 {
