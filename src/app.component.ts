@@ -165,7 +165,7 @@ export default class AppComponent extends Vue {
 
   private selectCardHandler( event: any ): void {
     console.log( 'selected event towards backend' );
-    this.gameChannel.push( 'selected', { cardId: event.card.id } );
+    this.gameChannel.push( 'selected', { cardId: event.card.id, token: this.token  } );
     this.selectedCards.push( event.card );
     this.isCardSelected = true;
   }
@@ -198,7 +198,7 @@ export default class AppComponent extends Vue {
     let cards = this.selectedCards.map(( card: any ) => {
       return card.id;
     } )
-    this.gameChannel.push( 'deck', { cards: cards } );
+    this.gameChannel.push( 'deck', { cards: cards, token: this.token  } );
     console.log( 'deck event towards backend' );
   }
 
