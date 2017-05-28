@@ -142,7 +142,7 @@ export default class AppComponent extends Vue {
   private draftCallback( response: any ): void {
     console.log( 'draft callback' );
     console.log(response);
-    this.cards = response;
+    this.cards = response.cards;
     this.isCardSelected = false;
   }
 
@@ -156,7 +156,7 @@ export default class AppComponent extends Vue {
   private draftFinishCallback( response: any ): void {
     console.log( 'draft_finish callback' );
     console.log(response);
-    this.cards = response;
+    this.cards = response.cards;
     this.currentState = this.states.building;
     this.selectedCards = [];
   }
