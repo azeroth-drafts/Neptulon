@@ -1,9 +1,27 @@
 <div>
-    <other-players v-if="currentState === states.drawing" v-bind:players="players"></other-players>
-    <ad-header v-if="currentState === states.waiting || currentState === states.joining"></ad-header>
-    <home v-if="currentState === states.joining"></home>
-    <login v-if="currentState === states.logging"></login>
-    <waiting v-if="currentState === states.waiting" v-bind:isJoined="trueVariable"></waiting>
+    <other-players 
+        v-if="currentState === states.drawing" 
+        v-bind:players="players"
+    ></other-players>
+    <ad-header 
+        v-if="currentState === states.waiting || currentState === states.joining"
+        v-bind:username="username" >
+    </ad-header>
+    <home 
+        v-if="currentState === states.joining"
+        @join="joinHandler">
+    </home>
+    <login 
+        v-if="currentState === states.logging"
+        @login="loginHandler"
+        v-bind:errorMessage="errorMessage" >
+    </login>
+    <waiting 
+        v-if="currentState === states.waiting" 
+        v-bind:isJoined="isJoined"
+        @acceptGame="acceptGameHandler"
+        @rejectGame="rejectGameHandler"
+    ></waiting>
     
     <drawing-board 
         v-if="currentState === states.drawing || currentState === states.building"
@@ -13,10 +31,13 @@
         @buildCard="buildCardHandler" 
         @selectCard="selectCardHandler">
     </drawing-board>
+
     <selected-board
-        v-if="currentState === states.drawing || currentState === states.building" 
+        v-if="currentState === states.drawing || currentState === states.building"
+        v-bind:playerClass="playerClass"
         v-bind:currentState="currentState"
-        v-bind:selectedCards="selectedCards">
+        v-bind:selectedCards="selectedCards"
+        @selectPlayerClass="selectPlayerClassHandler">
     </selected-board>
 
 

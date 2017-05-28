@@ -15,7 +15,7 @@
             <div class="text-center">
                 <button class="login-button btn" type="button" @click="login" v-bind:disabled="!formValid">Login</button>
             </div>
-            <div v-if="messageFromParent" class="alert alert-danger marg-top text-center">{{messageFromParent}}</div>
+            <div v-if="errorMessage" class="alert alert-danger marg-top text-center">{{errorMessage}}</div>
         </form>
     </div>
 </div>

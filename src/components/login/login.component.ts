@@ -7,7 +7,7 @@ import { LoginData } from './../../models';
     name: 'login',
     template: require( './login.component.html' ),
     props: [
-        'messageFromParent'
+        'errorMessage'
     ],
 } )
 export class LoginComponent extends Vue {
@@ -15,7 +15,7 @@ export class LoginComponent extends Vue {
     
     private $formValid: boolean = false;
 
-    private messageFromParent: string;
+    private errorMessage: string;
 
     private messageLogin: string = 'Pull up a chair by the hearth, friend!';
 
@@ -33,8 +33,6 @@ export class LoginComponent extends Vue {
     }
 
     private login(): void {
-        console.log( 'Username: ' + this.user.username, 'Password: ' + this.user.password );
-        console.log( 'Message from parent: ' + this.messageFromParent );
         this.$emit( 'login',
             {
                 username: this.user.username,
