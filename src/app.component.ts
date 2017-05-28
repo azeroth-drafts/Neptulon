@@ -109,13 +109,13 @@ export default class AppComponent extends Vue {
 
   private acceptGameHandler(): void {
     console.log( 'accept event towards backend' );
-    this.tavernChanel.push( 'accept', {} );
+    this.tavernChanel.push( 'accept', { token: this.token } );
     this.isJoined = false;
   }
 
   private rejectGameHandler(): void {
     console.log( 'reject event towards backend' );
-    this.tavernChanel.push( 'reject', {} );
+    this.tavernChanel.push( 'reject', { token: this.token } );
     this.tavernChanel.leave();
     this.currentState = this.states.joining;
     this.isJoined = false;

@@ -1,8 +1,9 @@
 .other-players-wrapper {
     margin-bottom: 100px;
     .player {
+        color: white;
         min-height: 100px;
-        background-color: #93d2d8;
+        background-color: #766d7b;
         border-right: 1px solid white;
         &.finished {
             background-color: #6ac16a;

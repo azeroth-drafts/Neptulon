@@ -2,7 +2,7 @@
     <div class="player col-xs-4 text-center" v-bind:class="{finished: player.finished }" v-for="player in players">
         <h2>{{player.userName}}</h2>
      <!--   <p v-if="!player.finished">Time remaining: {{player.tick}}</p>-->
-        <p v-if="player.finished">made choice</p>
-         <p v-else>thinking</p>
+        <p v-if="player.finished">made a choice</p>
+         <p v-else>is still thinking</p>
     </div>
 </div>
