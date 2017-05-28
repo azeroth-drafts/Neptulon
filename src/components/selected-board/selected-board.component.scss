@@ -3,7 +3,7 @@
     margin-bottom: 100px;
     padding-left: 0;
     padding-right: 0;
-    background-color: #92a0a0;
+    background-color: #e9efef;
     .select-class-container {
         .player-class {
             margin: 0;
@@ -11,12 +11,12 @@
             &:hover {
                 color: white;
                 cursor: pointer;
-                background-color: #6666ad;
+                background-color: #f44336;
             }
         }
     }
     .player-class {
-        border-bottom: 1px solid #adb4bf;
+     //   border-bottom: 1px solid #adb4bf;
         &.selected {
             padding: 20px;
             background-color: aqua;

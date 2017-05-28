@@ -3,25 +3,23 @@
         <div v-if="currentState === states.building && !playerClassSelected" class="select-class-container">
             <div class="headline text-center">Select a deck class</div>
             <ul class="player-classes">
-                <li @click="selectPlayerClass(playerClass)" class="player-class text-center" v-if="playerClass !== 'Neutral'" v-for="playerClass in playerClasses">
+                <li @click="selectPlayerClass(playerClass)" v-bind:class="playerClass + '-color' + ' player-class text-center'" v-if="playerClass !== 'Neutral'" v-for="playerClass in playerClasses">
                     <span v-bind:class="(playerClass !== 'Neutral' ? playerClass : 'Neutral')  + ' player-class-icon'"></span>{{playerClass}}</li>
             </ul>
         </div>
         <div v-if="currentState === states.building && playerClassSelected">
             <div class="headline text-center">Deck class</div>
-            <div class="selected-class-container"><span v-bind:class="playerClass + ' player-class-icon'"></span><span class="player-class">{{playerClass}}</span></div>
+            <div v-bind:class="playerClass + '-color selected-class-container'"><span v-bind:class="playerClass + ' player-class-icon'"></span><span class="player-class">{{playerClass}}</span></div>
         </div>
         <div class="headline text-center">Selected cards</div>
         <div>
-        <div class="card" v-for="(card, index) in selectedCards" @click="removeSelected(card, index)" v-bind:class="{'drawing-state': currentState === states.drawing}">
-
+        <div v-for="(card, index) in selectedCards" @click="removeSelected(card, index)" v-bind:class="card.playerClass + '-color card'">
             <span class="cost">{{card.cost}}</span>
             <span class="name">{{card.name}}</span>
             <span class="player-class hidden-xs">{{card.playerClass}}</span>
             <img class="card-image" v-bind:src="card.img">
         </div>
         </div>
-        <div class="save-deck-button-container"><button type="button" class="btn default" @click="sendDeck" v-bind:disabled="selectedCards && selectedCards.length < 30">Save deck</button></div>
-
+        <div v-if="currentState === states.building" class="save-deck-button-container"><button type="button" class="btn default" @click="sendDeck" v-bind:disabled="selectedCards && selectedCards.length < 30">Save deck</button></div>
     </div>
 </div>
