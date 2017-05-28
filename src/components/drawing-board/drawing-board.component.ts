@@ -9,7 +9,8 @@ import { STATES } from "../../constants";
     props: [
         'cards',
         'currentState',
-        'isCardSelected'
+        'isCardSelected',
+        'playerClass'
     ],
 } )
 
@@ -17,6 +18,7 @@ export class DrawingBoardComponent extends Vue {
     private cards: Array<any>;
     private currentState: string;
     private isCardSelected: boolean;
+    private playerClass: string;
 
     private states: any = STATES;
 

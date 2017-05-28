@@ -1,7 +1,8 @@
 <div class="col-xs-8 drawing-board-wrapper">
     <div>
         <div>
-            <div v-for="(card, index) in cards" @click="selectCard(card, index)" v-bind:class="{notActive: isCardSelected}" class="col-xs-6 col-sm-4 col-md-3 card-layout">
+            <div v-for="(card, index) in cards" @click="selectCard(card, index)" 
+                v-bind:class="{notActive: isCardSelected || (currentState === states.building && !playerClass)}" class="col-xs-6 col-sm-4 col-md-3 card-layout">
                 <img v-bind:src="card.img"  />
             </div>
         </div>
