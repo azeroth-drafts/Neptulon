@@ -1,15 +1,30 @@
 <div>
-    <other-players v-bind:players="players"></other-players>
-    <ad-header></ad-header>
-    <home></home>
-    <login></login>
-    <waiting v-bind:isJoined="trueVariable"></waiting>
-    <waiting v-bind:isJoined="falseVariable"></waiting>
+    <other-players v-if="currentState === states.drawing" v-bind:players="players"></other-players>
+    <ad-header v-if="currentState === states.waiting"></ad-header>
+    <home v-if="currentState === states.waiting"></home>
+    <login v-if="currentState === states.logging"></login>
+    <waiting v-if="currentState === states.waiting" v-bind:isJoined="trueVariable"></waiting>
+    
     <drawing-board 
+        v-if="currentState === states.drawing || currentState === states.building"
         v-bind:currentState="currentState" 
         v-bind:cards="cards" 
         v-bind:isCardSelected="isCardSelected"
         @buildCard="buildCardHandler" 
-        @selectCard="selectCardHandler"></drawing-board>
-    <selected-board v-bind:currentState="currentState" v-bind:selectedCards="selectedCards"></selected-board>
+        @selectCard="selectCardHandler">
+    </drawing-board>
+    <selected-board
+        v-if="currentState === states.drawing || currentState === states.building" 
+        v-bind:currentState="currentState"
+        v-bind:selectedCards="selectedCards">
+    </selected-board>
+
+
+
+    <div>
+        <button @click="changeState('logging')">logging State</button>
+        <button @click="changeState('waiting')">waiting State</button>
+        <button @click="changeState('drawing')">drawing State</button>
+        <button @click="changeState('building')">building State</button>
+    </div>
 </div>
