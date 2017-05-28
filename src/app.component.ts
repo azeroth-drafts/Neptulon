@@ -48,6 +48,7 @@ export default class AppComponent extends Vue {
   private gameChannel: any = null;
   private user: any = {};
   private isCardSelected: boolean = false;
+  private hideJoinButton: boolean = false;
   // private players: Array<any> = []; // TODO: finish
   // private cards: Array<any> = []; // TODO: finish
   // private selectedCards: Array<any> = []; // TODO: finish
@@ -94,6 +95,7 @@ export default class AppComponent extends Vue {
     if ( !this.socket ) {
       this.socket = SocketManager.initSocket( this.socketAddress, { params: { token: this.token } } );
       this.socket.connect();
+      console.log( 'Socket created' );
     }
 
     this.tavernChanel = this.socket.channel( 'tavern', { token: this.token } );
@@ -101,6 +103,8 @@ export default class AppComponent extends Vue {
     this.tavernChanel.on( 'game_start', this.gameStartCallback );
     this.tavernChanel.on( 'game_canceled', this.gameCanceledCallback );
     this.tavernChanel.join(); // TODO:
+    console.log( 'After join on tavernChanel' );
+    this.hideJoinButton = true;
   }
 
   private acceptGameHandler(): void {
@@ -113,6 +117,7 @@ export default class AppComponent extends Vue {
     this.tavernChanel.leave();
     this.currentState = this.states.joining;
     this.isJoined = false;
+    this.hideJoinButton = false;
   }
 
   private gameFoundCallback(): void {
@@ -137,6 +142,7 @@ export default class AppComponent extends Vue {
     this.tavernChanel.leave();
     this.currentState = this.states.joining;
     this.isJoined = false;
+    this.hideJoinButton = false;
   }
 
   private tickCallback( response: any ): void {

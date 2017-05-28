@@ -9,7 +9,8 @@
     </ad-header>
     <home 
         v-if="currentState === states.joining"
-        @join="joinHandler">
+        @join="joinHandler"
+        v-bind:hideJoin="hideJoinButton">
     </home>
     <login 
         v-if="currentState === states.logging"
