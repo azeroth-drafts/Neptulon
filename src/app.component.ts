@@ -108,11 +108,13 @@ export default class AppComponent extends Vue {
   }
 
   private acceptGameHandler(): void {
+    console.log( 'accept event towards backend' );
     this.tavernChanel.push( 'accept', {} );
     this.isJoined = false;
   }
 
   private rejectGameHandler(): void {
+    console.log( 'reject event towards backend' );
     this.tavernChanel.push( 'reject', {} );
     this.tavernChanel.leave();
     this.currentState = this.states.joining;
@@ -121,11 +123,13 @@ export default class AppComponent extends Vue {
   }
 
   private gameFoundCallback(): void {
+    console.log( 'game_found callback' );
     this.currentState = this.states.waiting;
     this.isJoined = true;
   }
 
   private gameStartCallback( response: any ): void {
+    console.log( 'game_start callback' );
     console.dir( response );
     this.tavernChanel.leave();
     this.currentState = this.states.drawing;
@@ -139,29 +143,35 @@ export default class AppComponent extends Vue {
   }
 
   private gameCanceledCallback(): void {
+    console.log( 'game_canceled callback' );
     this.tavernChanel.leave();
+    console.log( 'leaved tavern' );
     this.currentState = this.states.joining;
     this.isJoined = false;
     this.hideJoinButton = false;
   }
 
   private tickCallback( response: any ): void {
+    console.log( 'tick callback' );
     this.players = response.others;
     this.user = response.user;
   }
 
   private draftCallback( response: any ): void {
+    console.log( 'draft callback' );
     this.cards = response;
     this.isCardSelected = false;
   }
 
   private selectCardHandler( event: any ): void {
+    console.log( 'selected event towards backend' );
     this.gameChannel.push( 'selected', { cardId: event.card.id } );
     this.selectedCards.push( event.card );
     this.isCardSelected = true;
   }
 
   private draftFinishCallback( response: any ): void {
+    console.log( 'draft_finish callback' );
     this.cards = response;
     this.currentState = this.states.building;
     this.selectedCards = [];
@@ -189,6 +199,7 @@ export default class AppComponent extends Vue {
       return card.id;
     } )
     this.gameChannel.push( 'deck', { cards: cards } );
+    console.log( 'deck event towards backend' );
   }
 
   // TODO: remove, for buttons
