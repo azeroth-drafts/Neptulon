@@ -1,9 +1,14 @@
 .other-players-wrapper {
+    margin-bottom: 100px;
     .player {
         min-height: 100px;
-        background-color: orange;
+        background-color: #93d2d8;
+        border-right: 1px solid white;
         &.finished {
-            background-color: green;
+            background-color: #6ac16a;
+        }
+        &:last-child {
+            border-right: none;
         }
     }
 }

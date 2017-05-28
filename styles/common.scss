@@ -1,5 +1,18 @@
+@font-face {
+    font-family: belweFont;
+    src: url('./../assets/belwe-bd-bt-bold.woff');
+}
+
+@font-face {
+    font-family: frizFont;
+    src: url('./../assets/FrizQuadrataRegular.woff');
+}
+
+
 body {
     min-height: 100vh;
+    background-image: url('./../assets/background.jpg');
+    font-family: frizFont;
 }
 
 ul {
@@ -7,3 +20,6 @@ ul {
     padding: 0;
     list-style: none;
 }
+
+
+

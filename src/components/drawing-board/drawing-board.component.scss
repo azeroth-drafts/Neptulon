@@ -1,17 +1,15 @@
-.drawing-board-wrapper{
+.drawing-board-wrapper {
+    margin-bottom: 100px;
     .notActive {
         opacity: 0.5;
         pointer-events: none;
     }
-
     .card-layout {
         display: inline-block;
     }
-
     img {
         width: 100%;
-
-        &:hover{
+        &:hover {
             background-color: red;
             border-radius: 10px;
             cursor: pointer;
