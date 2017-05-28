@@ -11,11 +11,13 @@
             <div>{{playerClass}}</div>
         </div>
         <div class="headline text-center">Selected cards</div>
-        <div class="card" v-for="card in selectedCards" @click="removeSelected(card.id)" v-bind:class="{'drawing-state': currentState === states.drawing}">
+        <div class="card" v-for="(card, index) in selectedCards" @click="removeSelected(card, index)" v-bind:class="{'drawing-state': currentState === states.drawing}">
             <span class="cost">{{card.cost}}</span>
             <span class="name">{{card.name}}</span>
             <span class="player-class">{{card.playerClass}}</span>
             <img class="card-image" v-bind:src="card.img">
         </div>
+        <button type="button" class="btn default" @click="sendDeck" v-bind:disabled="selectedCards && selectedCards.length < 30">Send deck</button>
+
     </div>
 </div>

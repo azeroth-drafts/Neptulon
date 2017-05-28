@@ -20,23 +20,24 @@ export class DrawingBoardComponent extends Vue {
 
     private states: any = STATES;
 
-    private selectCard(id: number):void {
+    private selectCard(card: any, index: number):void {
         if (this.currentState === this.states.drawing && !this.isCardSelected) {
 
-            this.removeElementById(id);
+            this.removeElementById(card.id);
 
             this.$emit( 'selectCard',
                 {
-                    id: id
+                    id: card.id
                 }
             );
         }
         else if (this.currentState === this.states.building) {
-            this.removeElementById(id);
+            //this.removeElementById(card.id);
 
             this.$emit( 'buildCard',
                 {
-                    id: id
+                    card: card,
+                    index: index
                 }
             );
         }

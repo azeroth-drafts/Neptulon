@@ -26,10 +26,10 @@ export class SelectedBoardComponent extends Vue {
     private playerClass: string;
 
 
-    private removeSelected( id: number ): void {
+    private removeSelected( card: any, index: number ): void {
         if ( this.currentState === this.states.building ) {
-            this.$emit( 'removeSelected', { id: id } );
-            console.log( 'Remove from selected card with id: ' + id );
+            this.$emit( 'removeSelected', { card: card, index: index } );
+            console.log( 'Remove from selected card with id: ' + card.id );
         }
     }
 
@@ -39,5 +39,9 @@ export class SelectedBoardComponent extends Vue {
             console.log( 'Selected player class: ' + playerClass );
             this.playerClassSelected = true;
         }
+    }
+
+    private sendDeck(): void {
+        this.$emit( 'sendSelectedDeck', {} );
     }
 }

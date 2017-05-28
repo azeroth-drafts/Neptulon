@@ -37,7 +37,9 @@
         v-bind:playerClass="playerClass"
         v-bind:currentState="currentState"
         v-bind:selectedCards="selectedCards"
-        @selectPlayerClass="selectPlayerClassHandler">
+        @selectPlayerClass="selectPlayerClassHandler"
+        @removeSelected="removeSelectedHandler"
+        @sendSelectedDeck="sendSelectedDeckHandler">
     </selected-board>
 
 
