@@ -85,4 +85,24 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .player-classes {
+        .player-class {
+            padding-left: 30px;
+        }
+    }
+    .selected-class-container {
+        padding: 20px 0 20px 50px;
+        height: 80px;
+        .player-class {
+            line-height: 40px;
+        }
+        .player-class-icon {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .save-deck-button-container {
+        padding: 15px;
+        text-align: center;
+    }
 }

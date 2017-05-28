@@ -26,3 +26,43 @@ ul {
     text-align: center;
 }
 
+.player-class-icon {
+    float: left;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &.Druid {
+        background-image: url('./../assets/Druid.png');
+    }
+    &.Hunter {
+        background-image: url('./../assets/Hunter.png');
+    }
+    &.Mage {
+        background-image: url('./../assets/Mage.png');
+    }
+    &.Paladin {
+        background-image: url('./../assets/Paladin.png');
+    }
+    &.Priest {
+        background-image: url('./../assets/Priest.png');
+    }
+    &.Rogue {
+        background-image: url('./../assets/Rogue.png');
+    }
+    &.Shaman {
+        background-image: url('./../assets/Shaman.png');
+    }
+    &.Warlock {
+        background-image: url('./../assets/Warlock.png');
+    }
+    &.Warrior {
+        background-image: url('./../assets/Warrior.png');
+    }
+    &.Neutral {
+        border-radius: 50%;
+        background-color: blue;
+    }
+}
+
