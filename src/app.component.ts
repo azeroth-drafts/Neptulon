@@ -49,30 +49,11 @@ export default class AppComponent extends Vue {
   private user: any = {};
   private isCardSelected: boolean = false;
   private hideJoinButton: boolean = false;
-  // private players: Array<any> = []; // TODO: finish
-  // private cards: Array<any> = []; // TODO: finish
-  // private selectedCards: Array<any> = []; // TODO: finish
+  private players: Array<any> = []; 
+  private cards: Array<any> = []; 
+  private selectedCards: Array<any> = [];
   private playerClass: string = "";
 
-  private players: Array<any> = [
-    { userName: 'Pesho', finished: true, tick: 27 },
-    { userName: 'Maria', finished: false, tick: 27 },
-    { userName: 'Sonia', finished: false, tick: 27 }
-  ]
-
-  private cards: Array<any> = [
-    { playerClass: 'Hunter', name: 'Django Bango', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 16, cost: 5 },
-    { playerClass: 'Mage', name: 'Babaliuga', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 123, cost: 8 },
-    { playerClass: 'Rogue', name: 'Krokozoid', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 431, cost: 1 },
-    { playerClass: 'Neutral', name: 'Zmei Gorianin', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 731, cost: 4 }
-  ]
-
-  private selectedCards: Array<any> = [
-    { playerClass: 'Hunter', name: 'Django Bango', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 16, cost: 5 },
-    { playerClass: 'Mage', name: 'Babaliuga', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 123, cost: 8 },
-    { playerClass: 'Rogue', name: 'Krokozoid', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 431, cost: 1 },
-    { playerClass: 'Neutral', name: 'Zmei Gorianin', img: 'http://wow.zamimg.com/images/hearthstone/cards/enus/original/EX1_116.png', id: 731, cost: 4 }
-  ]
 
   private loginHandler( user: any ): void {
 
@@ -153,12 +134,14 @@ export default class AppComponent extends Vue {
 
   private tickCallback( response: any ): void {
     console.log( 'tick callback' );
+    console.log(response);
     this.players = response.others;
     this.user = response.user;
   }
 
   private draftCallback( response: any ): void {
     console.log( 'draft callback' );
+    console.log(response);
     this.cards = response;
     this.isCardSelected = false;
   }
@@ -172,6 +155,7 @@ export default class AppComponent extends Vue {
 
   private draftFinishCallback( response: any ): void {
     console.log( 'draft_finish callback' );
+    console.log(response);
     this.cards = response;
     this.currentState = this.states.building;
     this.selectedCards = [];
@@ -203,7 +187,7 @@ export default class AppComponent extends Vue {
   }
 
   // TODO: remove, for buttons
-  private changeState( newState: string ): void {
-    this.currentState = newState;
-  }
+  // private changeState( newState: string ): void {
+  //   this.currentState = newState;
+  // }
 }
